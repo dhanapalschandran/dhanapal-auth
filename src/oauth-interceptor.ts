@@ -14,9 +14,9 @@ export default class OAuthInterceptor {
         private eventAggregator: EventAggregator) { }
 
     public request = (config: HttpRequestMessage): any => {
-        if (config.url.indexOf(window.location.origin) > -1) {
-            return config;
-        }
+      //  if (config.url.indexOf(window.location.origin) > -1) {
+        //    return config;
+        //}
 
         if (this.oauthTokenService.getToken() && !this.oauthTokenService.isTokenValid()) {
             this.eventAggregator.publish(OAuthService.INVALID_TOKEN_EVENT);
